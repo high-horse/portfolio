@@ -277,6 +277,15 @@
 
    </footer>
    <script>
+        // Title customize
+        var docTitle  = document.title;
+        window.addEventListener('blur', () => {
+            document.title = "Come back 😢";
+        })
+        window.addEventListener("focus", () => {
+            document.title = docTitle;
+        })
+
         // always recent date
         document.getElementById("currentYear").innerText = new Date().getFullYear();
     

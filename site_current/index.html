@@ -272,10 +272,14 @@
     <!-------------------------- Footer section -------------------------->
    <footer class="footer">
     <small class="message">Thanks for visiting and happy coding!</small>
-    <small class="copyright">&copy; Copyright 2024. All rights reserved.</small>
+    <small class="copyright">&copy; Copyright <span id="currentYear"></span>. All rights reserved.</small>
+
 
    </footer>
    <script>
+        // always recent date
+        document.getElementById("currentYear").innerText = new Date().getFullYear();
+    
         document.querySelector('form[name="submitToGoogleSheet"]').addEventListener('submit', function (e) {
             e.preventDefault();
             document.getElementById('submitButton').disabled = true;

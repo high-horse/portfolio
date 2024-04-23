@@ -276,46 +276,6 @@
 
 
    </footer>
-   <script>
-        // Title customize
-        var docTitle  = document.title;
-        window.addEventListener('blur', () => {
-            document.title = "Come back 😢";
-        })
-        window.addEventListener("focus", () => {
-            document.title = docTitle;
-        })
-
-        // always recent date
-        document.getElementById("currentYear").innerText = new Date().getFullYear();
-    
-        document.querySelector('form[name="submitToGoogleSheet"]').addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('submitButton').disabled = true;
-            // Create a FormData object from the form
-            const formData = new FormData(e.target);
-
-            fetch("https://formsubmit.co/ajax/33eed4766c087209a197e890f83d83f4", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // Check if the submission was successful (you may need to adjust based on the response structure)
-                    if (data.success) {
-                        alert("Form submitted successfully!");
-                    } else {
-                        alert("Form submission failed. Please try again.");
-                    }
-                })
-                .catch(error => console.log(error))
-                .finally(() => {
-                    // Re-enable the submit button after the response is received
-                    document.getElementById('submitButton').disabled = false;
-                });
-        });
-    </script>
 
 </body>
 </html>
